@@ -31,6 +31,15 @@ echo "install"
 mkdir -p %{buildroot}
 cd %{buildroot}
 tar xfz %{tarname}
+cd %{name}-%{version}
+for dir in manage admin login dashboard
+do
+mkdir -p ../opt/calamari/webapp/content/"$dir"
+cp -pr "$dir"/dist/* ../opt/calamari/webapp/content/"$dir"/
+done
+cd ../
+rm -rf /tmp/%{name}-%{version}
+mv %{name}-%{version} /tmp/
 
 %clean
 echo "clean"

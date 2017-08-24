@@ -7,7 +7,7 @@ SRC := $(shell pwd)
 # set these only if not set with ?=
 VERSION ?= $(shell $(SRC)/get-versions.sh VERSION)
 REVISION ?= $(shell $(SRC)/get-versions.sh REVISION)
-BUILD_PRODUCT_TGZ=$(SRC)/romana-build-output.tar.gz
+BUILD_PRODUCT_TGZ=$(SRC)/romana_$(VERSION).tar.gz
 
 RPM_REVISION ?= $(shell $(SRC)/get-versions.sh -r REVISION)
 RPMBUILD=$(SRC)/../rpmbuild
